@@ -15,9 +15,8 @@ for filename in "${files[@]}"; do
 		--template=templates/index.html
 done
 
-BASE_NAME=$(basename "$(pwd)/src/index.md")
 pandoc \
-	src/"${BASE_NAME}" \
-	-o dist/"${BASE_NAME%.*}.html" \
+	src/index.md \
+	-o index.html \
 	--metadata pagetitle="${PAGE_TITLE}" \
 	--template=templates/index.html
