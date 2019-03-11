@@ -18,7 +18,7 @@ date: "'${DATE}'"
 ' > src/posts/"${SLUG}".md
 
 # Append post to index.md list.
-OUTPUT=$(echo "* [${TITLE}](dist/${SLUG}) - ${DATE_POST_LIST}" | cat - src/index.md)
+OUTPUT=$(echo "* [${TITLE}](dist/posts/${SLUG}) - ${DATE_POST_LIST}" | cat - src/index.md)
 
 # Rewrite index.md
 echo "${OUTPUT}" > src/index.md
