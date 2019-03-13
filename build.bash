@@ -2,7 +2,7 @@
 
 readonly PAGE_TITLE="Sergio Soares"
 readonly MARKDOWN_POSTS="src/posts"
-readonly HTML_POSTS="dist/posts"
+readonly HTML_POSTS="posts"
 
 mkdir -p "${HTML_POSTS}"
 

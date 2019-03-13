@@ -14,10 +14,19 @@
 
         <div class="container">
             <hr>
-            <h2></h2>
-        	<ul>
-<li><a href="posts/processo-do-logstash-que-nao-finaliza">Processo do Logstash que não finaliza</a> - Março 11, 2019</li>
-</ul>
+            <h2>Processo do Logstash que não finaliza</h2>
+        	<p>Temos um processo que de tempos em tempos executa o Logstash, algumas vezes o processo pode ficar preso. Para nos auxiliar a finalizar o processo podemos efetuar o seguinte comando.</p>
+<pre><code>$ jps
+1618 Logstash
+2974 Jps</code></pre>
+<p>Com isso teremos qual o processo que está preso e podemos finalizá-lo da seguinte forma.</p>
+<pre><code>kill 1618</code></pre>
+<p>Em casos mais extremos:</p>
+<pre><code>kill -9 1618</code></pre>
+<p>Afim de facilitar o uso podemos utilizar o seguinte snippet que finaliza o processo Java chamado Logstash:</p>
+<pre><code>kill $(jps | grep Logstash | awk &#39;{print $1}&#39;)</code></pre>
+<p>Referências:</p>
+<p>https://askubuntu.com/questions/227890/kill-java-processes</p>
         </div>
 
         <footer>
