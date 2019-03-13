@@ -1,16 +1,18 @@
 #!/bin/bash
 
 readonly PAGE_TITLE="Sergio Soares"
+readonly MARKDOWN_POSTS="src/posts"
+readonly HTML_POSTS="dist/posts"
 
-mkdir -p dist/posts
+mkdir -p "${HTML_POSTS}"
 
-files=("$(pwd)/src/posts"/*)
+files=("$(pwd)/${MARKDOWN_POSTS}"/*)
 for filename in "${files[@]}"; do
     BASE_NAME=$(basename $filename)
 
     pandoc \
-		src/posts/"${BASE_NAME}" \
-		-o dist/posts/"${BASE_NAME%.*}.html" \
+		"${MARKDOWN_POSTS}/${BASE_NAME}" \
+		-o "${HTML_POSTS}/${BASE_NAME%.*}.html" \
 		--metadata pagetitle="${PAGE_TITLE}" \
 		--template=templates/index.html
 done
